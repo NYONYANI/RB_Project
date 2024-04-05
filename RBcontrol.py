@@ -64,11 +64,13 @@ def MoveJoint( joint1, joint2,joint3,joint4,joint5, joint6,spd = -1, acc = -1):
 # 연결 확인 예시
 
 def MoveTCP(x,y,z,rx,ry,rz,spd = -1, acc = -1):
+    print(f"movetcp {spd}, {acc}, {x}, {y}, {z}, {rx}, {ry}, {rz}")
     send_command(f"movetcp {spd}, {acc}, {x}, {y}, {z}, {rx}, {ry}, {rz}")
 
 if __name__ == "__main__":
-
-    check_connection()
+    CobotInit()
+    MoveTCP(300,300,300,0,0,0)
+    #check_connection()
 
 
 
