@@ -1,5 +1,6 @@
 import socket
 
+
 # TCP 소켓 생성
 def create_sockets(robot_ip, command_port, data_port):
     command_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -9,7 +10,8 @@ def create_sockets(robot_ip, command_port, data_port):
     return command_sock, data_sock
 
 # 로봇에게 명령을 전송하는 함수
-def send_command(command_sock, command):
+def send_command(command,command_sock):
+    
     try:
         command_sock.sendall(command.encode())
     except Exception as e:
@@ -41,5 +43,6 @@ def MoveTCP( x, y, z, rx, ry, rz, spd=-1, acc=-1):
     send_command( f"movetcp {spd}, {acc}, {x}, {y}, {z}, {rx}, {ry}, {rz}")
 
 # 관절 좌표 이동 함수
-def MoveJoint( joint1, joint2, joint3, joint4, joint5, joint6, spd=-1, acc=-1):
-    send_command( f"jointall {spd}, {acc}, {joint1}, {joint2}, {joint3}, {joint4}, {joint5}, {joint6}")
+def MoveJoint(command_sock, joint1, joint2, joint3, joint4, joint5, joint6, spd=-1, acc=-1):
+
+    send_command( command_sock,f"jointall {spd}, {acc}, {joint1}, {joint2}, {joint3}, {joint4}, {joint5}, {joint6}")
