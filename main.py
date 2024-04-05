@@ -37,8 +37,8 @@ if __name__ == "__main__":
             else:
                 print("Invalid tool state")
         elif command == "reqdata":
-            reqdata = input("Enter data request: ")
-            ReqData(command_sock, reqdata)
+            #reqdata = input("Enter data request: ")
+            ReqData(command_sock,data_sock)
         else:
             print("Invalid command")
     

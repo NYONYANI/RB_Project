@@ -34,6 +34,6 @@ def Tool(sock, voltage, d0, d1):
     send_command(sock, f"tool_out {voltage}, {d0}, {d1}")
 
 #reqdata 문자열을 보내면 5001포트로 데이터가 수신되는 코드
-def ReqData(sock, reqdata):
-    send_command(sock, f"reqdata {reqdata}")
-    receive_data(sock)    
+def ReqData(sock,data_sock):
+    send_command(sock, f"reqdata")
+    receive_data(data_sock)    
