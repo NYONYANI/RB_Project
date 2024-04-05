@@ -37,22 +37,36 @@ def receive_data():
 # 연결 확인 함수
 def check_connection():
     try:
-        # TCP 소켓 생성
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        
         # 로봇에 연결 시도
-        result = sock.connect_ex((robot_ip, command_port))
+        result = command_sock.connect_ex((robot_ip, command_port))
         
         if result == 0:
             print('Connection successful')
+            return True
         else:
             print('Connection failed')
         
-        # 소켓 닫기
-        sock.close()
-        
     except Exception as e:
         print(f'Error checking connection: {e}')
+    return False
+
+def CobotInit():
+    send_command("mc jall init")
+
+def MoveJoint( joint1, joint2,joint3,joint4,joint5, joint6,spd = -1, acc = -1):
+    send_command(f"jointall {spd}, {acc}, {joint1}, {joint2}, {joint3}, {joint4}, {joint5}, {joint6}")
 
 # 연결 확인 예시
-check_connection()
+
+def MoveTCP(x,y,z,rx,ry,rz,spd = -1, acc = -1):
+    send_command(f"movetcp {spd}, {acc}, {x}, {y}, {z}, {rx}, {ry}, {rz}")
+
+if __name__ == "__main__":
+
+    check_connection()
+
+
+
+
+
+
