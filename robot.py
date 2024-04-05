@@ -29,3 +29,11 @@ def MoveJoint(sock, joint1, joint2, joint3, joint4, joint5, joint6, spd = -1, ac
 
 def MoveTCP(sock, x, y, z, rx, ry, rz, spd = -1, acc = -1):
     send_command(sock, f"movetcp {spd}, {acc}, {x}, {y}, {z}, {rx}, {ry}, {rz}")
+#tool 작동 코드 전압, d0, d1 로 구성
+def Tool(sock, voltage, d0, d1):
+    send_command(sock, f"tool_out {voltage}, {d0}, {d1}")
+
+#reqdata 문자열을 보내면 5001포트로 데이터가 수신되는 코드
+def ReqData(sock, reqdata):
+    send_command(sock, f"reqdata {reqdata}")
+    receive_data(sock)    
