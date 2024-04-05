@@ -1,32 +1,21 @@
-#function.py를 import 해서 사용하는데 앞에 이름 붙히지 않고 쓰게 해줘
-import socket
+# 메인 파일 (main.py)
+
 from function import *
 
-
-# 로봇의 IP 주소와 포트 번호
+# 로봇 IP 주소 및 포트 번호
 robot_ip = '10.0.2.7'
 command_port = 5000
 data_port = 5001
+# 전역 변수로 선언
+global command_sock, data_sock
 
-# TCP 소켓 생성
-command_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-data_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# 소켓 생성 및 연결
+command_sock, data_sock = function.create_sockets(robot_ip, command_port, data_port)
 
-# 로봇에 연결
-command_sock.connect((robot_ip, command_port))
-data_sock.connect((robot_ip, data_port))
+# 연결 확인
+check_connection()
 
-# 로봇에게 명령을 전송하는 함수
-
-
-if __name__ == "__main__":
-    #CobotInit()
-    #MoveTCP(600,-300,800,0,0,0)
-    MoveJoint(0,10,10,0,10,10,1,1)
-    #check_connection()
-    
-
-
-
-
-
+# 원하는 함수 호출
+#function.CobotInit(command_sock)
+#function.MoveTCP(command_sock, 600,-300,800,0,0,0)
+MoveJoint(0,10,10,0,10,10,1,1)
