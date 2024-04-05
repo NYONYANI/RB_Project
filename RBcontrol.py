@@ -58,10 +58,11 @@ def MoveTCP(x,y,z,rx,ry,rz,spd = -1, acc = -1):
     send_command(f"movetcp {spd}, {acc}, {x}, {y}, {z}, {rx}, {ry}, {rz}")
 
 if __name__ == "__main__":
-    CobotInit()
-    MoveTCP(300,300,300,0,0,0)
+    #CobotInit()
+    #MoveTCP(600,-300,800,0,0,0)
+    MoveJoint(0,10,10,0,10,10,1,1)
     #check_connection()
-
+    
 
 
 
