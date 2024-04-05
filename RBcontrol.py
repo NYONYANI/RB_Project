@@ -36,19 +36,24 @@ def receive_data():
 
 # 연결 확인 함수
 def check_connection():
+    print("Try connect...")
     try:
-        # 로봇에 연결 시도
-        result = command_sock.connect_ex((robot_ip, command_port))
-        
-        if result == 0:
+        # 로봇으로부터 데이터 수신 시도
+        data = command_sock.recv(1)
+
+        # 데이터 수신 성공 시 연결 성공
+        if data:
             print('Connection successful')
             return True
+
+        # 데이터 수신 실패 시 연결 실패
         else:
             print('Connection failed')
-        
+            return False
+
     except Exception as e:
         print(f'Error checking connection: {e}')
-    return False
+        return False
 
 def CobotInit():
     send_command("mc jall init")
