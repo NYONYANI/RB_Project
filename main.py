@@ -1,19 +1,21 @@
 from wifi import connect_to_wifi
 from robot import *
 
-if __name__ == "__main__":
-    wifi_ssid = "RB5-850"
-    connect_to_wifi(wifi_ssid)
 
-    robot_ip = '10.0.2.7'
-    command_port = 5000
-    data_port = 5001
+
+if __name__ == "__main__":
+    WIFI_SSID = "RB5-850"
+    reconnect_ssid = connect_to_wifi(WIFI_SSID)
+
+    ROBOT_IP = '10.0.2.7'
+    COMMAND_PORT = 5000
+    DATA_PORT = 5001
 
     command_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     data_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    command_sock.connect((robot_ip, command_port))
-    data_sock.connect((robot_ip, data_port))
+    command_sock.connect((ROBOT_IP, COMMAND_PORT))
+    data_sock.connect((ROBOT_IP, DATA_PORT))
 
     #사용 가능한 명령어를 출력
     print("Available commands: Movej, Movel, tool, reqdata, exit")
@@ -45,4 +47,4 @@ if __name__ == "__main__":
 
     #MoveJoint(command_sock, 0, 10, 10, 0, 10, 10, 1, 1)
 
-    connect_to_wifi("D315-5G", "airrobot315")
+    disconnect_to_wifi(reconnect_ssid)
