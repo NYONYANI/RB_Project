@@ -11,7 +11,8 @@ def receive_data(sock):
     try:
         send_command(sock, "reqdata")
         data = sock.recv(1024)
-        print(f'Received data: {data.decode()}')
+        print(data)
+        print(f'Received data: {data.decode("utf-8`")}')
     except Exception as e:
         print(f'Error receiving data: {e}')
 

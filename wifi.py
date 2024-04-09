@@ -23,7 +23,7 @@ def connect_to_wifi(ssid, password=None):
         profile.cipher = const.CIPHER_TYPE_CCMP
         profile.key = password
 
-    iface.remove_all_network_profiles()
+    # iface.remove_all_network_profiles()  # Commented out
     tmp_profile = iface.add_network_profile(profile)
 
     iface.connect(tmp_profile)
