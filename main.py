@@ -39,8 +39,7 @@ if __name__ == "__main__":
             else:
                 print("Invalid tool state")
         elif command == "reqdata":
-            #reqdata = input("Enter data request: ")
-            ReqData(command_sock,data_sock)
+            receive_data(data_sock)
         elif command == "pgmode_real":
             pgmode_real(command_sock)
         elif command == "init":

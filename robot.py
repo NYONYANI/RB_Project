@@ -9,6 +9,7 @@ def send_command(sock, command):
 
 def receive_data(sock):
     try:
+        send_command(sock, "reqdata")
         data = sock.recv(1024)
         print(f'Received data: {data.decode()}')
     except Exception as e:
