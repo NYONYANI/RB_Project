@@ -1,4 +1,4 @@
-from wifi import connect_to_wifi
+from wifi import *
 from robot import *
 
 
@@ -41,6 +41,10 @@ if __name__ == "__main__":
         elif command == "reqdata":
             #reqdata = input("Enter data request: ")
             ReqData(command_sock,data_sock)
+        elif command == "pgmode_real":
+            pgmode_real(command_sock)
+        elif command == "init":
+            CobotInit(command_sock)
         else:
             print("Invalid command")
     

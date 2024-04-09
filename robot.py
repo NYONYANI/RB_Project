@@ -37,3 +37,6 @@ def Tool(sock, voltage, d0, d1):
 def ReqData(sock,data_sock):
     send_command(sock, f"reqdata")
     receive_data(data_sock)    
+
+def pgmode_real(sock):
+    send_command(sock,f"pgmode real")
