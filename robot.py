@@ -1,5 +1,8 @@
-import socket
+
 import reqdata
+
+import socket
+
 def send_command(sock, command):
     try:
         print(command.encode())
@@ -42,8 +45,7 @@ def Tool(sock, voltage, d0, d1):
 
 #reqdata 문자열을 보내면 5001포트로 데이터가 수신되는 코드
 def ReqData(sock,data_sock):
-    send_command(sock, f"reqdata")
-    receive_data(data_sock)    
+    Receive_data(data_sock)    
 
 def pgmode_real(sock):
     send_command(sock,f"pgmode real")
