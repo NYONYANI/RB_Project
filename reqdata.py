@@ -128,7 +128,7 @@ class RobotData:
         offset += 4
         self.time, = struct.unpack('f', data[offset:offset+4])
         offset += 4
-        self.jnt_ref = [struct.unpack('f', data[offset:offset+4])[0] for _ in range(6)]
+        self.jnt_ref = [struct.unpack('f', data[offset:offset+4])[0] for i in range(6)]
         offset += 24
         self.jnt_ang = [struct.unpack('f', data[offset:offset+4])[0] for _ in range(6)]
         offset += 24

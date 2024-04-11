@@ -1,5 +1,6 @@
 from wifi import *
 import robot_c
+import time
 ROBOT_IP = '10.0.2.7'
 COMMAND_PORT = 5000
 DATA_PORT = 5001
@@ -7,10 +8,11 @@ WIFI_SSID = "RB5-850"
 
 
 if __name__ == "__main__":
-    connect_to_wifi(WIFI_SSID)
+    #connect_to_wifi(WIFI_SSID)
     robot = robot_c.Robot(ROBOT_IP, COMMAND_PORT, DATA_PORT)
     if (robot.connect()==0):
         robot.CobotInit()
+        time.sleep(1)
         robot.pgmode_real()
     else:
         print("Connection failed")
@@ -20,7 +22,8 @@ if __name__ == "__main__":
     #사용 가능한 명령어를 출력
     print("Available commands: Movej, Movel, tool, reqdata, exit")
 
-    while robot.receive_data():
+    while 1:
+        robot.receive_data()
         command = input("Enter command: ")
 
         if command == "exit":
@@ -39,11 +42,13 @@ if __name__ == "__main__":
             else: print("Invalid tool state")
         elif command == "set_speed":
             speed = input("Enter speed: ")
-            robot.shw(speed)
+            robot.sdw(speed)
         elif command == "show_state":
             robot.show_state()
         elif command == "shutdown":
             robot.shutdown()
+        elif command == "reqdata":
+            robot.receive_data()
 
         else:
             print("Invalid command")

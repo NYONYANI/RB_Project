@@ -16,22 +16,23 @@ class Robot:
             self.data_sock.connect((self.ip, self.data_port))
             print('Connected to robot')
         except Exception as e:
-            print(f'Error connecting to robot: {e}')s
+            print(f'Error connecting to robot: {e}')
             return -1
         return 0
     def send_command(self, command):
         try:
-            print(command.encode())
+            #print(command.encode())
             self.command_sock.sendall(command.encode())
         except Exception as e:
             print(f'Error sending command: {e}')
 
     def receive_data(self):
         try:
-            self.send_command("reqdata")
+            self.data_sock.sendall("reqdata".encode())
             receive_data = self.data_sock.recv(1024)  # The total size of the structure
+            #print(self.receive_data)
             self.robot_state.unpack(receive_data)
-            #print(unpacked_data.jnt_ref)
+            
             return 1
         except Exception as e:
             print(f'Error receiving data: {e}')
@@ -55,13 +56,16 @@ class Robot:
     #tool 작동 코드 전압, d0, d1 로 구성
     def Tool(self, voltage, d0, d1):
         self.send_command(f"tool_out {voltage}, {d0}, {d1}")
+
+    def pgmode_real(self):
+        self.send_command(f"pgmode real")
     def  shutdown(self):
-        self.send_command("shutdown")
-    def shw(self,speed):
-        self.send_command(f"shw default_speed {speed}") 
+        self.send_command(f"shutdown")
+    def sdw(self,speed):
+        self.send_command(f"sdw default_speed {speed}") 
     def show_state(self):
         print("joint_ref: ", self.robot_state.jnt_ref)
         print("joint_ang: ", self.robot_state.jnt_ang)
-        print("tcp_ref: ", self.robot_state.ref)
+        print("tcp_ref: ", self.robot_state.tcp_ref)
         print("tcp_pos: ", self.robot_state.tcp_pos)
         print("robot_default_speed: ", self.robot_state.default_speed)
