@@ -1,5 +1,5 @@
 import socket
-
+import reqdata
 def send_command(sock, command):
     try:
         print(command.encode())
@@ -9,17 +9,13 @@ def send_command(sock, command):
 
 import struct
 
-def receive_data(sock):
+def Receive_data(sock):
     try:
         send_command(sock, "reqdata")
-        data = sock.recv(1024)  # The total size of the structure
-        
-        # Unpack the data
-        # This assumes that the data is a structure as provided
-        format_str = '4s' + 'f' * 154 + 'i' * 36  # Format string for struct.unpack
-        data_struct = struct.unpack(format_str, data)
-        
-        print(f'Received data: {data_struct}')
+        receive_data = sock.recv(1024)  # The total size of the structure
+        unpacked_data = reqdata.RobotData()
+        unpacked_data.unpack(receive_data)
+        print(unpacked_data.jnt_ref)
     except Exception as e:
         print(f'Error receiving data: {e}')
 

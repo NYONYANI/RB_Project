@@ -1,50 +1,53 @@
 from wifi import *
-from robot import *
+import robot_c
+ROBOT_IP = '10.0.2.7'
+COMMAND_PORT = 5000
+DATA_PORT = 5001
+WIFI_SSID = "RB5-850"
 
 
 if __name__ == "__main__":
-    WIFI_SSID = "RB5-850"
-    #reconnect_ssid = connect_to_wifi(WIFI_SSID)
-
-    ROBOT_IP = '10.0.2.7'
-    COMMAND_PORT = 5000
-    DATA_PORT = 5001
-
-    command_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    data_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    command_sock.connect((ROBOT_IP, COMMAND_PORT))
-    data_sock.connect((ROBOT_IP, DATA_PORT))
+    connect_to_wifi(WIFI_SSID)
+    robot = robot_c.Robot(ROBOT_IP, COMMAND_PORT, DATA_PORT)
+    if (robot.connect()==0):
+        robot.CobotInit()
+        robot.pgmode_real()
+    else:
+        print("Connection failed")
+        exit()
+        
 
     #사용 가능한 명령어를 출력
     print("Available commands: Movej, Movel, tool, reqdata, exit")
 
-    while True:
+    while robot.receive_data():
         command = input("Enter command: ")
+
         if command == "exit":
             break
         elif command == "Movej":
             joint1, joint2, joint3, joint4, joint5, joint6 = input("Enter joint angles: ").split()
-            MoveJoint(command_sock, joint1, joint2, joint3, joint4, joint5, joint6)
+            robot.MoveJoint(joint1, joint2, joint3, joint4, joint5, joint6)
         elif command == "Movel":
             x, y, z, rx, ry, rz = input("Enter TCP coordinates: ").split()
-            MoveTCP(command_sock, x, y, z, rx, ry, rz)
+            robot.MoveTCP(x, y, z, rx, ry, rz)
+            
         elif command == "tool":
             tool_state = input("Enter tool state (on/off): ")
-            if tool_state == "on":
-                Tool(command_sock, 24, 1, 0)
-            elif tool_state == "off":
-                Tool(command_sock, 24, 0, 1)
-            else:
-                print("Invalid tool state")
-        elif command == "reqdata":
-            receive_data(data_sock)
-        elif command == "pgmode_real":
-            pgmode_real(command_sock)
-        elif command == "init":
-            CobotInit(command_sock)
+            if tool_state == "on": robot.Tool( 24, 1, 0)
+            elif tool_state == "off": robot.Tool(24, 0, 1)
+            else: print("Invalid tool state")
+        elif command == "set_speed":
+            speed = input("Enter speed: ")
+            robot.shw(speed)
+        elif command == "show_state":
+            robot.show_state()
+        elif command == "shutdown":
+            robot.shutdown()
+
         else:
             print("Invalid command")
+        
     
 
     #MoveJoint(command_sock, 0, 10, 10, 0, 10, 10, 1, 1)
