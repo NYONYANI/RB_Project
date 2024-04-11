@@ -2,10 +2,9 @@ from wifi import *
 from robot import *
 
 
-
 if __name__ == "__main__":
     WIFI_SSID = "RB5-850"
-    reconnect_ssid = connect_to_wifi(WIFI_SSID)
+    #reconnect_ssid = connect_to_wifi(WIFI_SSID)
 
     ROBOT_IP = '10.0.2.7'
     COMMAND_PORT = 5000
@@ -50,4 +49,4 @@ if __name__ == "__main__":
 
     #MoveJoint(command_sock, 0, 10, 10, 0, 10, 10, 1, 1)
 
-    disconnect_to_wifi(reconnect_ssid)
+    #disconnect_to_wifi(reconnect_ssid)

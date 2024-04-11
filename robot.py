@@ -7,14 +7,23 @@ def send_command(sock, command):
     except Exception as e:
         print(f'Error sending command: {e}')
 
+import struct
+
 def receive_data(sock):
     try:
         send_command(sock, "reqdata")
-        data = sock.recv(1024)
-        print(data)
-        print(f'Received data: {data.decode("utf-8`")}')
+        data = sock.recv(1024)  # The total size of the structure
+        
+        # Unpack the data
+        # This assumes that the data is a structure as provided
+        format_str = '4s' + 'f' * 154 + 'i' * 36  # Format string for struct.unpack
+        data_struct = struct.unpack(format_str, data)
+        
+        print(f'Received data: {data_struct}')
     except Exception as e:
         print(f'Error receiving data: {e}')
+
+
 
 def check_connection(sock):
     try:
