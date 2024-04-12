@@ -56,15 +56,20 @@ if __name__ == "__main__":
         elif command == "reqdata":
             robot.receive_data()
         elif command == "grab":
+            robot.MoveJoint(90, 30, -90, 60, -90, 0)
             robot.Tool(24, 1, 0)
             time.sleep(1)
-            print(grab[0][0],grab[0][1],grab[0][2],grab[0][3],grab[0][4],grab[0][5])
             robot.MoveTCP(143, -526, 108, 90, 0, -90)
-            time.sleep(5)
+            time.sleep(0.2)
             robot.MoveTCP(143, -526, 14, 90, 0, -90)
-            #time.sleep(1)
-            time.sleep(5)
-            robot.Tool(24, 1, 0)
+            time.sleep(1)
+            robot.Tool(24, 0, 1)
+            time.sleep(1)
+            robot.MoveTCP(143, -526, 14, 90, 0, -90)
+            time.sleep(0.2)
+            robot.MoveTCP(143, -526, 108, 90, 0, -90)
+            time.sleep(0.2)
+            robot.MoveJoint(90, 30, -90, 60, -90, 0)
             
         else:
             print("Invalid command")

@@ -49,13 +49,17 @@ class Robot:
         self.send_command("mc jall init")
 
     def MoveJoint(self, joint1, joint2, joint3, joint4, joint5, joint6, spd = -1, acc = -1):
-        while self.robot_state.robot_state != 0:
+        while 1:
             self.receive_data()
+            if self.robot_state.robot_state ==1:break
+            
         self.send_command(f"jointall {spd}, {acc}, {joint1}, {joint2}, {joint3}, {joint4}, {joint5}, {joint6}")
 
     def MoveTCP(self, x, y, z, rx, ry, rz, spd = -1, acc = -1):
-        while self.robot_state.robot_state != 0:
+        while 1:
             self.receive_data()
+            if self.robot_state.robot_state ==1: break
+
         self.send_command(f"movetcp {spd}, {acc}, {x}, {y}, {z}, {rx}, {ry}, {rz}")
     #tool 작동 코드 전압, d0, d1 로 구성
     def Tool(self, voltage, d0, d1):
