@@ -14,6 +14,8 @@ if __name__ == "__main__":
         robot.CobotInit()
         time.sleep(1)
         robot.pgmode_real()
+        robot.MoveJoint(90, 30, -90, 60, -90, 0)
+        robot.receive_data()
     else:
         print("Connection failed")
         exit()
@@ -21,9 +23,11 @@ if __name__ == "__main__":
 
     #사용 가능한 명령어를 출력
     print("Available commands: Movej, Movel, tool, reqdata, exit")
-
+    #90 30 -90 60 -90 0
+    # -220 -467 189 90 0 -90
+    grab=[[143, -526, 108, 90, 0, -90],[143, -526, 14, 90, 0, -90]]
     while 1:
-        robot.receive_data()
+        
         command = input("Enter command: ")
 
         if command == "exit":
@@ -44,14 +48,27 @@ if __name__ == "__main__":
             speed = input("Enter speed: ")
             robot.sdw(speed)
         elif command == "show_state":
+            robot.receive_data()
             robot.show_state()
+            
         elif command == "shutdown":
             robot.shutdown()
         elif command == "reqdata":
             robot.receive_data()
-
+        elif command == "grab":
+            robot.Tool(24, 1, 0)
+            time.sleep(1)
+            print(grab[0][0],grab[0][1],grab[0][2],grab[0][3],grab[0][4],grab[0][5])
+            robot.MoveTCP(143, -526, 108, 90, 0, -90)
+            time.sleep(5)
+            robot.MoveTCP(143, -526, 14, 90, 0, -90)
+            #time.sleep(1)
+            time.sleep(5)
+            robot.Tool(24, 1, 0)
+            
         else:
             print("Invalid command")
+        robot.receive_data()
         
     
 
