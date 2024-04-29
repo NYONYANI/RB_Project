@@ -51,7 +51,6 @@ class Robot:
 
     def MoveJoint(self, joint1, joint2, joint3, joint4, joint5, joint6, spd = -1, acc = -1):        
         self.send_command(f"jointall {spd}, {acc}, {joint1}, {joint2}, {joint3}, {joint4}, {joint5}, {joint6}")
-        time.sleep(0.1)
 
     def MoveTCP(self, x, y, z, rx, ry, rz, spd = -1, acc = -1):
         while 1:
