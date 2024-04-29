@@ -197,6 +197,7 @@ background-color: rgb(244, 248, 247);</string>
      <property name="font">
       <font>
        <family>나눔스퀘어 네오 Regular</family>
+       <pointsize>8</pointsize>
       </font>
      </property>
      <property name="text">
@@ -215,6 +216,7 @@ background-color: rgb(244, 248, 247);</string>
      <property name="font">
       <font>
        <family>나눔스퀘어 네오 Regular</family>
+       <pointsize>8</pointsize>
       </font>
      </property>
      <property name="text">
@@ -245,13 +247,14 @@ background-color: rgb(244, 248, 247);</string>
       <rect>
        <x>200</x>
        <y>30</y>
-       <width>101</width>
+       <width>81</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>나눔스퀘어 네오 Regular</family>
+       <pointsize>8</pointsize>
       </font>
      </property>
      <property name="text">
@@ -301,13 +304,14 @@ background-color: rgb(244, 248, 247);</string>
       <rect>
        <x>200</x>
        <y>60</y>
-       <width>101</width>
+       <width>81</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>나눔스퀘어 네오 Regular</family>
+       <pointsize>8</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2242,7 +2246,7 @@ background-color: rgb(187, 189, 195);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>580</y>
+      <y>590</y>
       <width>611</width>
       <height>51</height>
      </rect>
