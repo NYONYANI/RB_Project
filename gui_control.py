@@ -5,7 +5,7 @@ from PyQt5.QtCore import QTimer
 import sys
 import robot_c
 from os import environ
-
+import time
 
 font_path = "fonts/YourFont.ttf"
 class MyWindow(QMainWindow):
@@ -74,7 +74,7 @@ class MyWindow(QMainWindow):
         if (self.robot.connect()==0 ):
             print("Connection successful")
             self.debug_msg.append("Connection successful")
-            self.timer.start(500)
+            self.timer.start(10)
         else:
             print("Connection failed")
             self.debug_msg.append("Connection failed")
@@ -127,8 +127,10 @@ class MyWindow(QMainWindow):
     def motion_play(self):
         self.debug_msg.append("Playing motion")
         for i in self.motion:
+            self.debug_msg.append(str(self.motion))
             self.robot.MoveJoint(i[0][0],i[0][1],i[0][2],i[0][3],i[0][4],i[0][5])
             self.robot.Tool(24,i[1][0],i[1][1])
+            
     def motion_clear(self):
         self.motion.clear()
         self.debug_msg.append("Motion cleared")
@@ -154,8 +156,9 @@ class MyWindow(QMainWindow):
         self.TCP_REF_RY.setText(str(self.robot.robot_state.tcp_ref[4]))
         self.TCP_REF_RZ.setText(str(self.robot.robot_state.tcp_ref[5]))
         if self.robot.robot_state.robot_state == 3:
-            self.robot_state_Moving.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
-        else:self.robot_state_Moving.setStyleSheet("border-radius: 10px;\nrgb(244, 248, 247);")
+            self.robot_state_Moving.setStyleSheet("border-radius: 10px;background-color: green;")
+        else:
+            self.robot_state_Moving.setStyleSheet("border-radius: 10px;background-color:rgb(244, 248, 247);")
         if self.robot.robot_state.robot_state == 1:
             self.robot_state_Idle.setStyleSheet("border-radius: 10px;background-color: green;")
         else:self.robot_state_Idle.setStyleSheet("border-radius: 10px;background-color: rgb(244, 248, 247);")

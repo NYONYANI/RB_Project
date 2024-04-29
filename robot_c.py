@@ -1,6 +1,6 @@
 import socket
 import reqdata
-
+import time
 class Robot:
     def __init__(self, ip, command_port, data_port):
         self.command_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -49,12 +49,9 @@ class Robot:
     def CobotInit(self):
         self.send_command("mc jall init")
 
-    def MoveJoint(self, joint1, joint2, joint3, joint4, joint5, joint6, spd = -1, acc = -1):
-        while 1:
-            self.receive_data()
-            if self.robot_state.robot_state ==1:break
-            
+    def MoveJoint(self, joint1, joint2, joint3, joint4, joint5, joint6, spd = -1, acc = -1):        
         self.send_command(f"jointall {spd}, {acc}, {joint1}, {joint2}, {joint3}, {joint4}, {joint5}, {joint6}")
+        time.sleep(0.1)
 
     def MoveTCP(self, x, y, z, rx, ry, rz, spd = -1, acc = -1):
         while 1:
