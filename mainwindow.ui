@@ -542,7 +542,7 @@ border-radius: 10px;</string>
 Resume</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="BTN_COLLISION_RESUME">
+   <widget class="QPushButton" name="BTN_ROBOT_POS_RES">
     <property name="geometry">
      <rect>
       <x>850</x>
@@ -562,8 +562,8 @@ color: rgb(255, 255, 255);
 border-radius: 10px;</string>
     </property>
     <property name="text">
-     <string>Collision
-Resume</string>
+     <string>Robot Ros
+Reset</string>
     </property>
    </widget>
    <widget class="QPushButton" name="BTN_SPEED_CHANGE">

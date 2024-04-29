@@ -32,6 +32,11 @@ class MyWindow(QMainWindow):
         self.tool_on = self.findChild(QPushButton, 'BTN_TOOL_ON')
         self.tool_off = self.findChild(QPushButton, 'BTN_TOOL_OFF')
         self.clear_debug = self.findChild(QPushButton, 'BTN_CLEAR_LINE')
+        self.robot_pos_reset = self.findChild(QPushButton, 'BTN_ROBOT_POS_RES')
+
+
+
+
         self.ip_address = self.findChild(QLineEdit, 'IP_ADDRESS')
         self.debug_msg = self.findChild(QTextEdit, 'DEBUG_MSG')
 
@@ -53,7 +58,7 @@ class MyWindow(QMainWindow):
         self.tool_on.clicked.connect(self.set_tool_on)
         self.tool_off.clicked.connect(self.set_tool_off)
         self.clear_debug.clicked.connect(self.debug_msg.clear)
-
+        self.robot_pos_reset.clicked.connect(self.set_robot_pos_reset)
 
         
     
@@ -81,6 +86,8 @@ class MyWindow(QMainWindow):
         self.robot.pgmode_real()
     def set_mode_simulation(self):
         self.robot.pgmode_simulation()
+    def set_robot_pos_reset(self):
+        self.robot.MoveJoint(90, 30, -90, 60, -90, 0)
     def move_joint(self):
         joint1 = self.SET_JNT_POS_J1.text()
         joint2 = self.SET_JNT_POS_J2.text()
