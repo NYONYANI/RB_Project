@@ -16,6 +16,7 @@ class MyWindow(QMainWindow):
         
         ui_file = "mainwindow.ui"
         loadUi(ui_file, self)
+        self.motion = []
         self.timer = QTimer()
         self.timer.timeout.connect(self.receive_data)
         self.robot =  robot_c.Robot(ROBOT_IP, COMMAND_PORT, DATA_PORT)
@@ -33,8 +34,9 @@ class MyWindow(QMainWindow):
         self.tool_off = self.findChild(QPushButton, 'BTN_TOOL_OFF')
         self.clear_debug = self.findChild(QPushButton, 'BTN_CLEAR_LINE')
         self.robot_pos_reset = self.findChild(QPushButton, 'BTN_ROBOT_POS_RES')
-
-
+        self.btn_motion_save = self.findChild(QPushButton, 'BTN_MOTION_SAVE')
+        self.btn_motion_play = self.findChild(QPushButton, 'BTN_MOTION_PLAY')
+        self.btn_motion_clear = self.findChild(QPushButton, 'BTN_MOTION_CLEAR')
 
 
         self.ip_address = self.findChild(QLineEdit, 'IP_ADDRESS')
@@ -59,6 +61,9 @@ class MyWindow(QMainWindow):
         self.tool_off.clicked.connect(self.set_tool_off)
         self.clear_debug.clicked.connect(self.debug_msg.clear)
         self.robot_pos_reset.clicked.connect(self.set_robot_pos_reset)
+        self.btn_motion_save.clicked.connect(self.motion_save)
+        self.btn_motion_play.clicked.connect(self.motion_play)
+        self.btn_motion_clear.clicked.connect(self.motion.clear)
 
         
     
@@ -116,7 +121,18 @@ class MyWindow(QMainWindow):
 
         self.robot.MoveTCP(x, y, z, rx, ry, rz)
         self.debug_msg.append("Moving TCP to: "+x+", "+y+", "+z+", "+rx+", "+ry+", "+rz)
-
+    def motion_save(self):
+        self.motion.append([self.robot.robot_state.jnt_ang,self.robot.robot_state.tfb_digital_out])
+        self.debug_msg.append("Motion saved")
+    def motion_play(self):
+        self.debug_msg.append("Playing motion")
+        for i in self.motion:
+            self.robot.MoveJoint(i[0][0],i[0][1],i[0][2],i[0][3],i[0][4],i[0][5])
+            self.robot.Tool(24,i[1][0],i[1][1])
+    def motion_clear(self):
+        self.motion.clear()
+        self.debug_msg.append("Motion cleared")
+            
     def receive_data(self):
         self.robot.receive_data()
         self.JNT_REF_1.setText(str(self.robot.robot_state.jnt_ref[0]))
@@ -137,25 +153,38 @@ class MyWindow(QMainWindow):
         self.TCP_REF_RX.setText(str(self.robot.robot_state.tcp_ref[3]))
         self.TCP_REF_RY.setText(str(self.robot.robot_state.tcp_ref[4]))
         self.TCP_REF_RZ.setText(str(self.robot.robot_state.tcp_ref[5]))
-        if self.robot.robot_state.robot_state == 3:self.robot_state_Moving.setStyleSheet("background-color: green;")
-        else:self.robot_state_Moving.setStyleSheet("background-color: white;")
-        if self.robot.robot_state.robot_state == 1:self.robot_state_Idle.setStyleSheet("background-color: green;")
-        else:self.robot_state_Idle.setStyleSheet("background-color: white;")
+        if self.robot.robot_state.robot_state == 3:
+            self.robot_state_Moving.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
+        else:self.robot_state_Moving.setStyleSheet("border-radius: 10px;\nrgb(244, 248, 247);")
+        if self.robot.robot_state.robot_state == 1:
+            self.robot_state_Idle.setStyleSheet("border-radius: 10px;background-color: green;")
+        else:self.robot_state_Idle.setStyleSheet("border-radius: 10px;background-color: rgb(244, 248, 247);")
 
-        if self.robot.robot_state.real_vs_simulation_mode == 0: self.mode_real.setStyleSheet("background-color: green;")
-        else: self.mode_real.setStyleSheet("background-color: white;")
+        if self.robot.robot_state.real_vs_simulation_mode == 0: 
+            self.mode_real.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
+        else: self.mode_real.setStyleSheet("border-radius: 10px;\nbackground-color: rgb(244, 248, 247);")
 
         if self.robot.robot_state.real_vs_simulation_mode == 1:self.mode_simulation.setStyleSheet("background-color: green;")
         else: self.mode_simulation.setStyleSheet("background-color: white;")
 
-        if self.robot.robot_state.init_state_info == 1: self.LE_INIT_POWER.setStyleSheet("background-color: green;")
-        if self.robot.robot_state.init_state_info == 2: self.LE_INIT_DEVICE.setStyleSheet("background-color: green;")
-        if self.robot.robot_state.init_state_info == 3: self.LE_INIT_SYSTEM.setStyleSheet("background-color: green;")
-        if self.robot.robot_state.init_state_info == 4: self.LE_INIT_ROBOT.setStyleSheet("background-color: green;")
+        if self.robot.robot_state.init_state_info == 1: self.LE_INIT_POWER.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
+        if self.robot.robot_state.init_state_info == 2: self.LE_INIT_DEVICE.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
+        if self.robot.robot_state.init_state_info == 3: self.LE_INIT_SYSTEM.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
+        if self.robot.robot_state.init_state_info == 4: self.LE_INIT_ROBOT.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
+        if self.robot.robot_state.init_state_info == 6: 
+            self.LE_INIT_POWER.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
+            self.LE_INIT_DEVICE.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
+            self.LE_INIT_SYSTEM.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
+            self.LE_INIT_ROBOT.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
 
-        if self.robot.robot_state.tfb_digital_out[0] == 0:self.TOOL_OUT_ON.setStyleSheet("background-color: green;")
-        else:self.TOOL_OUT_ON.setStyleSheet("background-color: white;")
 
+        if self.robot.robot_state.tfb_digital_out[0] == 0:
+            self.TOOL_OUT_ON.setStyleSheet("border-radius: 10px;\nbackground-color: rgb(244, 248, 247);\nbackground-color: green;")
+            self.TOOL_OUT_OFF.setStyleSheet("border-radius: 10px;\nbackground-color: rgb(244, 248, 247);\nbackground-color: rgb(244, 248, 247);")
+        else:
+            self.TOOL_OUT_ON.setStyleSheet("border-radius: 10px;\nbackground-color: rgb(244, 248, 247);\nbackground-color: white;")
+            self.TOOL_OUT_OFF.setStyleSheet("border-radius: 10px;\nbackground-color: rgb(244, 248, 247);\nbackground-color: rgb(244, 248, 247);")
+        
 
 def suppress_qt_warnings():
         environ["QT_DEVICE_PIXEL_RATIO"] = "0"
