@@ -4,6 +4,7 @@ from PyQt5.uic import loadUi
 from PyQt5.QtCore import QTimer
 import sys
 import robot_c
+from os import environ
 
 
 font_path = "fonts/YourFont.ttf"
@@ -12,7 +13,7 @@ class MyWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("My Window")
         self.resize(400, 300)
-
+        self.suppress_qt_warnings()
         ui_file = "mainwindow.ui"
         loadUi(ui_file, self)
         self.timer = QTimer()
@@ -55,7 +56,11 @@ class MyWindow(QMainWindow):
 
 
         
-
+    def suppress_qt_warnings(self):
+        environ["QT_DEVICE_PIXEL_RATIO"] = "0"
+        environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
+        environ["QT_SCREEN_SCALE_FACTORS"] = "1"
+        environ["QT_SCALE_FACTOR"] = "1"
     def connect_to_ros(self):
         # Get the IP address from the text field
         ip = self.ip_address.text()

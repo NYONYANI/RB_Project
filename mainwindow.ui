@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1092</width>
-    <height>643</height>
+    <width>1108</width>
+    <height>658</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -774,6 +774,10 @@ border-radius: 10px;</string>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -785,6 +789,10 @@ border-radius: 10px;</string>
          <font>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
         </property>
         <property name="text">
          <string>0</string>
@@ -798,6 +806,10 @@ border-radius: 10px;</string>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -809,6 +821,10 @@ border-radius: 10px;</string>
          <font>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
         </property>
         <property name="text">
          <string>0</string>
@@ -822,6 +838,10 @@ border-radius: 10px;</string>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -833,6 +853,10 @@ border-radius: 10px;</string>
          <font>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
         </property>
         <property name="text">
          <string>0</string>
@@ -2056,6 +2080,10 @@ border-radius: 10px;</string>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -2067,6 +2095,10 @@ border-radius: 10px;</string>
          <font>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
         </property>
         <property name="text">
          <string>0</string>
@@ -2080,6 +2112,10 @@ border-radius: 10px;</string>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -2091,6 +2127,10 @@ border-radius: 10px;</string>
          <font>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
         </property>
         <property name="text">
          <string>0</string>
@@ -2104,6 +2144,10 @@ border-radius: 10px;</string>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -2115,6 +2159,10 @@ border-radius: 10px;</string>
          <font>
           <family>나눔스퀘어 네오 Regular</family>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
         </property>
         <property name="text">
          <string>0</string>
