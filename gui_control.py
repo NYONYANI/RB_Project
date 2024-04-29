@@ -5,6 +5,8 @@ from PyQt5.QtCore import QTimer
 import sys
 import robot_c
 
+
+font_path = "fonts/YourFont.ttf"
 class MyWindow(QMainWindow):
     def __init__(self,ROBOT_IP, COMMAND_PORT, DATA_PORT, WIFI_SSID, parent=None):
         super().__init__()
@@ -52,9 +54,8 @@ class MyWindow(QMainWindow):
         self.clear_debug.clicked.connect(self.debug_msg.clear)
 
 
-
-
         
+
     def connect_to_ros(self):
         # Get the IP address from the text field
         ip = self.ip_address.text()
