@@ -67,6 +67,8 @@ class Robot:
 
     def pgmode_real(self):
         self.send_command(f"pgmode real")
+    def pgmode_simulation(self):
+        self.send_command(f"pgmode simulation")    
     def  shutdown(self):
         self.send_command(f"shutdown")
     def sdw(self,speed):

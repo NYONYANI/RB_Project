@@ -170,9 +170,9 @@ class RobotData:
         offset += 24
         self.jnt_info = [struct.unpack('i', data[offset+(i*4):offset+(i*4)+4])[0] for i in range(6)]
         offset += 24
-        self.collision_detect_onoff, = struct.unpack('i', data[offset:offset+4])
+        self.collision_detect_onoff, = struct.unpack('i', data[offset:offset+4])#모터 충돌 감지
         offset += 4
-        self.is_freedrive_mode, = struct.unpack('i', data[offset:offset+4])
+        self.is_freedrive_mode, = struct.unpack('i', data[offset:offset+4])#직접 제어 모드
         offset += 4
         self.real_vs_simulation_mode, = struct.unpack('i', data[offset:offset+4])
         offset += 4
@@ -186,7 +186,7 @@ class RobotData:
         offset += 8
         self.tfb_digital_out = [struct.unpack('i', data[offset+(i*4):offset+(i*4)+4])[0] for i in range(2)]
         offset += 8
-        self.tfb_voltage_out, = struct.unpack('f', data[offset:offset+4])
+        self.tfb_voltage_out, = struct.unpack('f', data[offset:offset+4])#툴플랜지 전압
         offset += 4
         self.op_stat_collision_occur, = struct.unpack('i', data[offset:offset+4])
         offset += 4
