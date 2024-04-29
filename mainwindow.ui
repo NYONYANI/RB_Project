@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1083</width>
-    <height>652</height>
+    <width>1092</width>
+    <height>643</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -20,7 +20,7 @@
    <string>Examples: External Command Client</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(240, 240, 240);</string>
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="styleSheet">
@@ -37,6 +37,7 @@
     </property>
     <property name="font">
      <font>
+      <family>나눔스퀘어 네오 Regular</family>
       <pointsize>10</pointsize>
      </font>
     </property>
@@ -58,6 +59,16 @@
        <height>40</height>
       </size>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 184, 144);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+     </property>
      <property name="text">
       <string>Connect</string>
      </property>
@@ -77,6 +88,11 @@
       </property>
       <item>
        <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>Address</string>
         </property>
@@ -96,6 +112,11 @@
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>10.0.2.7</string>
         </property>
@@ -113,6 +134,12 @@
       <height>171</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>Cobot Initialize</string>
     </property>
@@ -124,6 +151,16 @@
        <width>271</width>
        <height>61</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 184, 144);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Init</string>
@@ -138,6 +175,15 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Baskerville Old Face</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+     </property>
     </widget>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
@@ -147,6 +193,11 @@
        <width>91</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>1. Power Set</string>
@@ -161,6 +212,11 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="text">
       <string>2. Device Set</string>
      </property>
@@ -174,6 +230,15 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Baskerville Old Face</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+     </property>
     </widget>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
@@ -183,6 +248,11 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>3. System Set</string>
@@ -197,6 +267,15 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Baskerville Old Face</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="LE_INIT_ROBOT">
      <property name="geometry">
@@ -207,6 +286,15 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Baskerville Old Face</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+     </property>
     </widget>
     <widget class="QLabel" name="label_7">
      <property name="geometry">
@@ -216,6 +304,11 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>4. Robot Init</string>
@@ -233,6 +326,7 @@
     </property>
     <property name="font">
      <font>
+      <family>나눔스퀘어 네오 Regular</family>
       <pointsize>10</pointsize>
      </font>
     </property>
@@ -254,6 +348,16 @@
        <height>40</height>
       </size>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 184, 144);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+     </property>
      <property name="text">
       <string>Real</string>
      </property>
@@ -273,6 +377,16 @@
        <height>40</height>
       </size>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 184, 144);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+     </property>
      <property name="text">
       <string>Simulation</string>
      </property>
@@ -286,6 +400,22 @@
       <width>171</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal {
+        border: 1px solid #999999;
+        height: 8px; /* thickness of the groove */
+        background: #FFFFFF;
+        border-radius: 4px; /* radius of the groove */
+    }
+
+QSlider::handle:horizontal {
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #dadbde, stop:1 #f6f7fa);
+        border: 1px solid #999999;
+        width: 20px; /* width of the handle */
+        margin: -6px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
+        border-radius: 8px; /* radius of the handle (circle shape) */
+    }</string>
     </property>
     <property name="minimum">
      <number>0</number>
@@ -306,6 +436,11 @@
       <height>16</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+     </font>
+    </property>
     <property name="text">
      <string>Base Speed</string>
     </property>
@@ -318,6 +453,11 @@
       <width>51</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+     </font>
     </property>
     <property name="text">
      <string>0%</string>
@@ -335,8 +475,15 @@
       <height>61</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Heavy</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(252, 233, 79);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(254, 201, 40);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Motion
@@ -352,8 +499,15 @@ Pause</string>
       <height>61</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Heavy</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(252, 175, 62);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(254, 201, 40);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Motion
@@ -369,8 +523,15 @@ Halt</string>
       <height>61</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Heavy</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(0, 184, 144);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Motion
@@ -386,8 +547,15 @@ Resume</string>
       <height>61</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Heavy</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(138, 226, 52);</string>
+     <string notr="true">background-color: rgb(0, 184, 144);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Collision
@@ -403,8 +571,15 @@ Resume</string>
       <height>61</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Heavy</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(252, 233, 79);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(254, 201, 40);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Speed Change</string>
@@ -419,6 +594,12 @@ Resume</string>
       <height>311</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>Set Joint Position</string>
     </property>
@@ -431,8 +612,20 @@ Resume</string>
        <height>51</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(252, 233, 79);</string>
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(254, 201, 40);
+border-radius: 10px;</string>
      </property>
      <property name="text">
       <string>MoveJ</string>
@@ -456,6 +649,11 @@ Resume</string>
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>J5</string>
         </property>
@@ -471,6 +669,11 @@ Resume</string>
           <width>40</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
         </property>
         <property name="text">
          <string>J6</string>
@@ -488,6 +691,11 @@ Resume</string>
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>J1</string>
         </property>
@@ -503,6 +711,11 @@ Resume</string>
           <width>40</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
         </property>
         <property name="text">
          <string>J2</string>
@@ -520,6 +733,11 @@ Resume</string>
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>J4</string>
         </property>
@@ -536,6 +754,11 @@ Resume</string>
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>J3</string>
         </property>
@@ -546,6 +769,11 @@ Resume</string>
       </item>
       <item row="0" column="1">
        <widget class="QLineEdit" name="SET_JNT_POS_J1">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -553,6 +781,11 @@ Resume</string>
       </item>
       <item row="1" column="1">
        <widget class="QLineEdit" name="SET_JNT_POS_J2">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -560,6 +793,11 @@ Resume</string>
       </item>
       <item row="2" column="1">
        <widget class="QLineEdit" name="SET_JNT_POS_J3">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -567,6 +805,11 @@ Resume</string>
       </item>
       <item row="3" column="1">
        <widget class="QLineEdit" name="SET_JNT_POS_J4">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -574,6 +817,11 @@ Resume</string>
       </item>
       <item row="4" column="1">
        <widget class="QLineEdit" name="SET_JNT_POS_J5">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -581,6 +829,11 @@ Resume</string>
       </item>
       <item row="5" column="1">
        <widget class="QLineEdit" name="SET_JNT_POS_J6">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -594,15 +847,18 @@ Resume</string>
      <rect>
       <x>30</x>
       <y>230</y>
-      <width>71</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+     <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
     </property>
     <property name="text">
      <string>Real</string>
@@ -616,15 +872,18 @@ border: 1px solid grey
      <rect>
       <x>30</x>
       <y>260</y>
-      <width>71</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+     <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
     </property>
     <property name="text">
      <string>Simulation</string>
@@ -638,15 +897,18 @@ border: 1px solid grey
      <rect>
       <x>30</x>
       <y>320</y>
-      <width>71</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+     <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
     </property>
     <property name="text">
      <string>Idle</string>
@@ -660,15 +922,18 @@ border: 1px solid grey
      <rect>
       <x>30</x>
       <y>350</y>
-      <width>71</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+     <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
     </property>
     <property name="text">
      <string>Moving</string>
@@ -686,6 +951,12 @@ border: 1px solid grey
       <height>151</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Heavy</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>Joint Reference</string>
     </property>
@@ -697,6 +968,11 @@ border: 1px solid grey
        <width>21</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>J6</string>
@@ -711,11 +987,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -733,11 +1012,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -755,6 +1037,11 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="text">
       <string>J1</string>
      </property>
@@ -767,6 +1054,11 @@ border: 1px solid grey
        <width>21</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>J5</string>
@@ -781,11 +1073,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -803,6 +1098,11 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="text">
       <string>J4</string>
      </property>
@@ -815,6 +1115,11 @@ border: 1px solid grey
        <width>21</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>J3</string>
@@ -829,11 +1134,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -851,11 +1159,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -873,6 +1184,11 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="text">
       <string>J2</string>
      </property>
@@ -886,11 +1202,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -909,6 +1228,12 @@ border: 1px solid grey
       <height>151</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Heavy</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>Joint Encoder</string>
     </property>
@@ -920,6 +1245,11 @@ border: 1px solid grey
        <width>21</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>J6</string>
@@ -934,11 +1264,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -956,11 +1289,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -978,6 +1314,11 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="text">
       <string>J1</string>
      </property>
@@ -990,6 +1331,11 @@ border: 1px solid grey
        <width>21</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>J5</string>
@@ -1004,11 +1350,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -1026,6 +1375,11 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="text">
       <string>J4</string>
      </property>
@@ -1038,6 +1392,11 @@ border: 1px solid grey
        <width>21</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>J3</string>
@@ -1052,11 +1411,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -1074,11 +1436,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -1096,6 +1461,11 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="text">
       <string>J2</string>
      </property>
@@ -1109,11 +1479,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -1132,6 +1505,12 @@ border: 1px solid grey
       <height>151</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Heavy</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>TCP Reference</string>
     </property>
@@ -1143,6 +1522,11 @@ border: 1px solid grey
        <width>21</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>RZ</string>
@@ -1157,11 +1541,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -1179,11 +1566,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -1201,6 +1591,11 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="text">
       <string>X</string>
      </property>
@@ -1213,6 +1608,11 @@ border: 1px solid grey
        <width>21</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>RY</string>
@@ -1227,11 +1627,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -1249,6 +1652,11 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="text">
       <string>RX</string>
      </property>
@@ -1261,6 +1669,11 @@ border: 1px solid grey
        <width>21</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>Z</string>
@@ -1275,11 +1688,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -1297,11 +1713,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -1319,6 +1738,11 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="text">
       <string>Y</string>
      </property>
@@ -1332,11 +1756,14 @@ border: 1px solid grey
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid grey
-
-</string>
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
      </property>
      <property name="text">
       <string>0.000</string>
@@ -1352,8 +1779,14 @@ border: 1px solid grey
       <x>520</x>
       <y>210</y>
       <width>101</width>
-      <height>141</height>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Heavy</family>
+      <pointsize>10</pointsize>
+     </font>
     </property>
     <property name="title">
      <string>Tool Out</string>
@@ -1367,6 +1800,15 @@ border: 1px solid grey
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Bernard MT Condensed</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="TOOL_OUT_OFF">
      <property name="geometry">
@@ -1377,6 +1819,15 @@ border: 1px solid grey
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Bernard MT Condensed</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+     </property>
     </widget>
     <widget class="QLabel" name="label_32">
      <property name="geometry">
@@ -1386,6 +1837,11 @@ border: 1px solid grey
        <width>31</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>ON</string>
@@ -1402,6 +1858,11 @@ border: 1px solid grey
        <width>31</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
      </property>
      <property name="text">
       <string>OFF</string>
@@ -1420,6 +1881,12 @@ border: 1px solid grey
       <height>311</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>Set TCP Position</string>
     </property>
@@ -1432,8 +1899,15 @@ border: 1px solid grey
        <height>51</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(252, 233, 79);</string>
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(254, 201, 40);
+border-radius: 10px;</string>
      </property>
      <property name="text">
       <string>MoveJ</string>
@@ -1457,6 +1931,11 @@ border: 1px solid grey
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>RY</string>
         </property>
@@ -1472,6 +1951,11 @@ border: 1px solid grey
           <width>40</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
         </property>
         <property name="text">
          <string>RZ</string>
@@ -1489,6 +1973,11 @@ border: 1px solid grey
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>X</string>
         </property>
@@ -1504,6 +1993,11 @@ border: 1px solid grey
           <width>40</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
         </property>
         <property name="text">
          <string>Y</string>
@@ -1521,6 +2015,11 @@ border: 1px solid grey
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>RX</string>
         </property>
@@ -1537,6 +2036,11 @@ border: 1px solid grey
           <height>0</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>Z</string>
         </property>
@@ -1547,6 +2051,11 @@ border: 1px solid grey
       </item>
       <item row="0" column="1">
        <widget class="QLineEdit" name="SET_TCP_POS_X">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -1554,6 +2063,11 @@ border: 1px solid grey
       </item>
       <item row="1" column="1">
        <widget class="QLineEdit" name="SET_TCP_POS_Y">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -1561,6 +2075,11 @@ border: 1px solid grey
       </item>
       <item row="2" column="1">
        <widget class="QLineEdit" name="SET_TCP_POS_Z">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -1568,6 +2087,11 @@ border: 1px solid grey
       </item>
       <item row="3" column="1">
        <widget class="QLineEdit" name="SET_TCP_POS_RX">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -1575,6 +2099,11 @@ border: 1px solid grey
       </item>
       <item row="4" column="1">
        <widget class="QLineEdit" name="SET_TCP_POS_RY">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -1582,6 +2111,11 @@ border: 1px solid grey
       </item>
       <item row="5" column="1">
        <widget class="QLineEdit" name="SET_TCP_POS_RZ">
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
         <property name="text">
          <string>0</string>
         </property>
@@ -1599,6 +2133,11 @@ border: 1px solid grey
       <height>191</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+     </font>
+    </property>
     <property name="title">
      <string>Robot Data Viewer</string>
     </property>
@@ -1611,6 +2150,22 @@ border: 1px solid grey
        <height>121</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Light</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+background-color: rgb(244, 248, 247);</string>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'나눔스퀘어 네오 Light'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
     </widget>
     <widget class="QPushButton" name="BTN_CLEAR_LINE">
      <property name="geometry">
@@ -1620,6 +2175,15 @@ border: 1px solid grey
        <width>81</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+background-color: rgb(187, 189, 195);</string>
      </property>
      <property name="text">
       <string>Clear</string>
@@ -1644,8 +2208,15 @@ border: 1px solid grey
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(138, 226, 52);</string>
+      <string notr="true">background-color: rgb(0, 184, 144);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Send Script</string>
@@ -1660,16 +2231,26 @@ border: 1px solid grey
        <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+background-color:rgb(244, 248, 247);</string>
+     </property>
     </widget>
    </widget>
    <widget class="QLabel" name="label_40">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>40</x>
       <y>210</y>
-      <width>56</width>
-      <height>12</height>
+      <width>71</width>
+      <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Heavy</family>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>run mode</string>
@@ -1680,13 +2261,84 @@ border: 1px solid grey
      <rect>
       <x>30</x>
       <y>300</y>
-      <width>71</width>
+      <width>81</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Heavy</family>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>robot state</string>
     </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_9">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>210</y>
+      <width>91</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Tool</string>
+    </property>
+    <widget class="QPushButton" name="BTN_TOOL_ON">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>75</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+color: rgb(255, 255, 255);
+background-color: rgb(187, 189, 195);</string>
+     </property>
+     <property name="text">
+      <string>ON</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="BTN_TOOL_OFF">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>75</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+color: rgb(255, 255, 255);
+background-color: rgb(187, 189, 195);</string>
+     </property>
+     <property name="text">
+      <string>OFF</string>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

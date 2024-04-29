@@ -26,6 +26,9 @@ class MyWindow(QMainWindow):
         self.btn_speed_change = self.findChild(QPushButton, 'BTN_SPEED_CHANGE')
         self.btn_move_joint = self.findChild(QPushButton, 'BTN_SEND_JOINT_POS')
         self.btn_move_tcp = self.findChild(QPushButton, 'BTN_SEND_TCP_POS')
+        self.tool_on = self.findChild(QPushButton, 'BTN_TOOL_ON')
+        self.tool_off = self.findChild(QPushButton, 'BTN_TOOL_OFF')
+        self.clear_debug = self.findChild(QPushButton, 'BTN_CLEAR_LINE')
         self.ip_address = self.findChild(QLineEdit, 'IP_ADDRESS')
         self.debug_msg = self.findChild(QTextEdit, 'DEBUG_MSG')
 
@@ -43,8 +46,11 @@ class MyWindow(QMainWindow):
         self.hs_base_speed.valueChanged.connect(self.update_label)
         self.btn_move_joint.clicked.connect(self.move_joint)
         self.btn_move_tcp.clicked.connect(self.move_tcp)
-
         self.btn_speed_change.clicked.connect(self.change_speed)
+        self.tool_on.clicked.connect(self.set_tool_on)
+        self.tool_off.clicked.connect(self.set_tool_off)
+        self.clear_debug.clicked.connect(self.debug_msg.clear)
+
 
 
 
@@ -83,6 +89,12 @@ class MyWindow(QMainWindow):
 
         self.robot.MoveJoint(joint1, joint2, joint3, joint4, joint5, joint6)
         self.debug_msg.append("Moving joints to: "+joint1+", "+joint2+", "+joint3+", "+joint4+", "+joint5+", "+joint6)
+    def set_tool_on(self):
+        self.robot.Tool(24, 1, 0)
+        self.debug_msg.append("Tool on")
+    def set_tool_off(self):
+        self.robot.Tool(24, 0, 1)
+        self.debug_msg.append("Tool off")
     def move_tcp(self):
         x = self.SET_TCP_POS_X.text()
         y = self.SET_TCP_POS_Y.text()
