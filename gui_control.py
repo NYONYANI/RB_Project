@@ -14,7 +14,7 @@ class MyWindow(QMainWindow):
         ui_file = "mainwindow.ui"
         loadUi(ui_file, self)
         self.timer = QTimer()
-        self.timer.timeout.connect(self.update)
+        self.timer.timeout.connect(self.receive_data)
         self.robot =  robot_c.Robot(ROBOT_IP, COMMAND_PORT, DATA_PORT)
         self.robot_state = robot_c.reqdata.RobotData()
 
@@ -48,14 +48,15 @@ class MyWindow(QMainWindow):
 
 
 
-        self.timer.start(500)
+        
     def connect_to_ros(self):
         # Get the IP address from the text field
         ip = self.ip_address.text()
         self.robot.ip = ip
         if (self.robot.connect()==0 ):
-            self.robot.MoveJoint(90, 30, -90, 60, -90, 0)
-            self.robot.receive_data()
+            print("Connection successful")
+            self.debug_msg.append("Connection successful")
+            self.timer.start(500)
         else:
             print("Connection failed")
             self.debug_msg.append("Connection failed")
@@ -67,6 +68,7 @@ class MyWindow(QMainWindow):
 
     def cobot_init(self):
         self.robot.CobotInit()
+        self.debug_msg.append("Cobot Init")
     def set_mode_real(self):
         self.robot.pgmode_real()
     def set_mode_simulation(self):
@@ -94,43 +96,42 @@ class MyWindow(QMainWindow):
 
     def receive_data(self):
         self.robot.receive_data()
-        self.debug_msg.append("Received data")
-        self.JNT_REF_1.setText(str(self.robot.robot_state.joint_ref[0]))
-        self.JNT_REF_2.setText(str(self.robot.robot_state.joint_ref[1]))
-        self.JNT_REF_3.setText(str(self.robot.robot_state.joint_ref[2]))
-        self.JNT_REF_4.setText(str(self.robot.robot_state.joint_ref[3]))
-        self.JNT_REF_5.setText(str(self.robot.robot_state.joint_ref[4]))
-        self.JNT_REF_6.setText(str(self.robot.robot_state.joint_ref[5]))
-        self.JNT_ENC_1.setText(str(self.robot.robot_state.joint_ang[0]))
-        self.JNT_ENC_2.setText(str(self.robot.robot_state.joint_ang[1]))
-        self.JNT_ENC_3.setText(str(self.robot.robot_state.joint_ang[2]))
-        self.JNT_ENC_4.setText(str(self.robot.robot_state.joint_ang[3]))
-        self.JNT_ENC_5.setText(str(self.robot.robot_state.joint_ang[4]))
-        self.JNT_ENC_6.setText(str(self.robot.robot_state.joint_ang[5]))
+        self.JNT_REF_1.setText(str(self.robot.robot_state.jnt_ref[0]))
+        self.JNT_REF_2.setText(str(self.robot.robot_state.jnt_ref[1]))
+        self.JNT_REF_3.setText(str(self.robot.robot_state.jnt_ref[2]))
+        self.JNT_REF_4.setText(str(self.robot.robot_state.jnt_ref[3]))
+        self.JNT_REF_5.setText(str(self.robot.robot_state.jnt_ref[4]))
+        self.JNT_REF_6.setText(str(self.robot.robot_state.jnt_ref[5]))
+        self.JNT_ENC_1.setText(str(self.robot.robot_state.jnt_ang[0]))
+        self.JNT_ENC_2.setText(str(self.robot.robot_state.jnt_ang[1]))
+        self.JNT_ENC_3.setText(str(self.robot.robot_state.jnt_ang[2]))
+        self.JNT_ENC_4.setText(str(self.robot.robot_state.jnt_ang[3]))
+        self.JNT_ENC_5.setText(str(self.robot.robot_state.jnt_ang[4]))
+        self.JNT_ENC_6.setText(str(self.robot.robot_state.jnt_ang[5]))
         self.TCP_REF_X.setText(str(self.robot.robot_state.tcp_ref[0]))
         self.TCP_REF_Y.setText(str(self.robot.robot_state.tcp_ref[1]))
         self.TCP_REF_Z.setText(str(self.robot.robot_state.tcp_ref[2]))
         self.TCP_REF_RX.setText(str(self.robot.robot_state.tcp_ref[3]))
         self.TCP_REF_RY.setText(str(self.robot.robot_state.tcp_ref[4]))
         self.TCP_REF_RZ.setText(str(self.robot.robot_state.tcp_ref[5]))
-        if self.robot.robot_state.robot_state == 1:self.robot_state_Moving.setbgColor("green")
-        else:self.robot_state_Moving.setbgColor("white")
-        if self.robot.robot_state.robot_state == 3:self.robot_state_Idle.setbgColor("green")
-        else:self.robot_state_Idle.setbgColor("white")
+        if self.robot.robot_state.robot_state == 3:self.robot_state_Moving.setStyleSheet("background-color: green;")
+        else:self.robot_state_Moving.setStyleSheet("background-color: white;")
+        if self.robot.robot_state.robot_state == 1:self.robot_state_Idle.setStyleSheet("background-color: green;")
+        else:self.robot_state_Idle.setStyleSheet("background-color: white;")
 
-        if self.robot.real_vs_simulation_mode == 0: self.mode_real.setbgColor("green")
-        else: self.mode_real.setbgColor("white")
+        if self.robot.robot_state.real_vs_simulation_mode == 0: self.mode_real.setStyleSheet("background-color: green;")
+        else: self.mode_real.setStyleSheet("background-color: white;")
 
-        if self.robot.real_vs_simulation_mode == 1:self.mode_simulation.setbgColor("green")
-        else: self.mode_simulation.setbgColor("white")
+        if self.robot.robot_state.real_vs_simulation_mode == 1:self.mode_simulation.setStyleSheet("background-color: green;")
+        else: self.mode_simulation.setStyleSheet("background-color: white;")
 
-        if self.robot.init_state_info == 1: self.LE_INIT_POWER.setbgColor("green")
-        if self.robot.init_state_info == 2: self.LE_INIT_DEVICE.setbgColor("reen")
-        if self.robot.init_state_info == 3: self.LE_INIT_SYSTEM.setbgColor("green")
-        if self.robot.init_state_info == 4: self.LE_INIT_ROBOT.setbgColor("green")
+        if self.robot.robot_state.init_state_info == 1: self.LE_INIT_POWER.setStyleSheet("background-color: green;")
+        if self.robot.robot_state.init_state_info == 2: self.LE_INIT_DEVICE.setStyleSheet("background-color: green;")
+        if self.robot.robot_state.init_state_info == 3: self.LE_INIT_SYSTEM.setStyleSheet("background-color: green;")
+        if self.robot.robot_state.init_state_info == 4: self.LE_INIT_ROBOT.setStyleSheet("background-color: green;")
 
-        if self.robot.self.tfb_voltage_out == 24:self.TOOL_OUT_ON.setbgColor("green")
-        else:self.TOOL_OUT_ON.setbgColor("white")
+        if self.robot.robot_state.tfb_voltage_out == 24:self.TOOL_OUT_ON.setStyleSheet("background-color: green;")
+        else:self.TOOL_OUT_ON.setStyleSheet("background-color: white;")
 
 
 

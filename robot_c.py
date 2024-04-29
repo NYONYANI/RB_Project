@@ -9,6 +9,7 @@ class Robot:
         self.command_port = command_port
         self.data_port = data_port
         self.robot_state = reqdata.RobotData()
+        print("success")
 
     def connect(self):
         try:
