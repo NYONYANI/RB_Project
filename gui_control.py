@@ -99,10 +99,12 @@ class MyWindow(QMainWindow):
         self.robot.MoveJoint(joint1, joint2, joint3, joint4, joint5, joint6)
         self.debug_msg.append("Moving joints to: "+joint1+", "+joint2+", "+joint3+", "+joint4+", "+joint5+", "+joint6)
     def set_tool_on(self):
-        self.robot.Tool(24, 1, 0)
+        self.debug_msg.append(str(self.robot.robot_state.tfb_digital_out))
+        self.robot.Tool(24,0, 1)
         self.debug_msg.append("Tool on")
     def set_tool_off(self):
-        self.robot.Tool(24, 0, 1)
+        self.debug_msg.append(str(self.robot.robot_state.tfb_digital_out))
+        self.robot.Tool(24, 1, 0)
         self.debug_msg.append("Tool off")
     def move_tcp(self):
         x = self.SET_TCP_POS_X.text()
@@ -151,7 +153,7 @@ class MyWindow(QMainWindow):
         if self.robot.robot_state.init_state_info == 3: self.LE_INIT_SYSTEM.setStyleSheet("background-color: green;")
         if self.robot.robot_state.init_state_info == 4: self.LE_INIT_ROBOT.setStyleSheet("background-color: green;")
 
-        if self.robot.robot_state.tfb_voltage_out == 24:self.TOOL_OUT_ON.setStyleSheet("background-color: green;")
+        if self.robot.robot_state.tfb_digital_out[0] == 0:self.TOOL_OUT_ON.setStyleSheet("background-color: green;")
         else:self.TOOL_OUT_ON.setStyleSheet("background-color: white;")
 
 
