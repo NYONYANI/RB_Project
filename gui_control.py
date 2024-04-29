@@ -19,6 +19,8 @@ class MyWindow(QMainWindow):
         self.motion = []
         self.old_state = 0
         self.Possible_Move =True
+        self.Motion_play = False
+        self.motion_count = -1
         self.timer = QTimer()
         self.timer.timeout.connect(self.receive_data)
         self.robot =  robot_c.Robot(ROBOT_IP, COMMAND_PORT, DATA_PORT)
@@ -128,7 +130,9 @@ class MyWindow(QMainWindow):
         self.debug_msg.append("Motion saved")
     def motion_play(self):
         self.debug_msg.append("Playing motion")
-        self.motion_play = True
+        self.debug_msg.append(str(len(self.motion)))
+        self.Motion_play = True
+        self.motion_count = 0
         
         
             
@@ -164,14 +168,15 @@ class MyWindow(QMainWindow):
             self.robot_state_Idle.setStyleSheet("border-radius: 10px;background-color: green;")
         else:self.robot_state_Idle.setStyleSheet("border-radius: 10px;background-color: rgb(244, 248, 247);")
 
-        if (self.robot.robot_state.robot_state == 1) and (self.robot.robot_state.robot_state != self.old_state):
-            if self.motion_play:
-                MJ = self.motion[0]
+        if ((self.robot.robot_state.robot_state == 1) and (self.robot.robot_state.robot_state != self.old_state)) or self.motion_count == 0:
+            self.debug_msg.append("Robot is idle")
+            if self.Motion_play:
+                MJ = self.motion[self.motion_count]
                 self.robot.MoveJoint(MJ[0][0],MJ[0][1],MJ[0][2],MJ[0][3],MJ[0][4],MJ[0][5])
                 self.robot.Tool(24,MJ[1][0],MJ[1][1])
-                self.motion.pop(0)
-                if len(self.motion) == 0:
-                    self.motion_play = False
+                self.motion_count += 1
+                if len(self.motion) == self.motion_count:
+                    self.Motion_play = False
                     
         self.old_state = self.robot.robot_state.robot_state
         if self.robot.robot_state.real_vs_simulation_mode == 0: 
