@@ -38,8 +38,14 @@
     <property name="font">
      <font>
       <family>나눔스퀘어 네오 Regular</family>
-      <pointsize>10</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
     </property>
     <property name="title">
      <string>Network Connection</string>
@@ -139,6 +145,13 @@ border-radius: 10px;</string>
       <family>나눔스퀘어 네오 Regular</family>
       <pointsize>10</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
     </property>
     <property name="title">
      <string>Cobot Initialize</string>
@@ -334,6 +347,13 @@ background-color: rgb(244, 248, 247);</string>
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
+    </property>
     <property name="title">
      <string>Mode Change</string>
     </property>
@@ -396,59 +416,6 @@ border-radius: 10px;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QSlider" name="HS_BASE_SPEED">
-    <property name="geometry">
-     <rect>
-      <x>650</x>
-      <y>60</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QSlider::groove:horizontal {
-        border: 1px solid #999999;
-        height: 8px; /* thickness of the groove */
-        background: #FFFFFF;
-        border-radius: 4px; /* radius of the groove */
-    }
-
-QSlider::handle:horizontal {
-        background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #dadbde, stop:1 #f6f7fa);
-        border: 1px solid #999999;
-        width: 20px; /* width of the handle */
-        margin: -6px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
-        border-radius: 8px; /* radius of the handle (circle shape) */
-    }</string>
-    </property>
-    <property name="minimum">
-     <number>0</number>
-    </property>
-    <property name="maximum">
-     <number>100</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>650</x>
-      <y>40</y>
-      <width>91</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>나눔스퀘어 네오 Regular</family>
-     </font>
-    </property>
-    <property name="text">
-     <string>Base Speed</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="LB_BASE_SPEED">
     <property name="geometry">
      <rect>
@@ -470,125 +437,6 @@ QSlider::handle:horizontal {
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="BTN_MOTION_PAUSE">
-    <property name="geometry">
-     <rect>
-      <x>850</x>
-      <y>20</y>
-      <width>101</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>나눔스퀘어 네오 Heavy</family>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(254, 201, 40);
-border-radius: 10px;</string>
-    </property>
-    <property name="text">
-     <string>Motion
-Pause</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="BTN_MOTION_HALT">
-    <property name="geometry">
-     <rect>
-      <x>970</x>
-      <y>100</y>
-      <width>101</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>나눔스퀘어 네오 Heavy</family>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(254, 201, 40);
-border-radius: 10px;</string>
-    </property>
-    <property name="text">
-     <string>Motion
-Halt</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="BTN_MOTION_RESUME">
-    <property name="geometry">
-     <rect>
-      <x>970</x>
-      <y>20</y>
-      <width>101</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>나눔스퀘어 네오 Heavy</family>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 184, 144);
-color: rgb(255, 255, 255);
-border-radius: 10px;</string>
-    </property>
-    <property name="text">
-     <string>Motion
-Resume</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="BTN_ROBOT_POS_RES">
-    <property name="geometry">
-     <rect>
-      <x>850</x>
-      <y>100</y>
-      <width>101</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>나눔스퀘어 네오 Heavy</family>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 184, 144);
-color: rgb(255, 255, 255);
-border-radius: 10px;</string>
-    </property>
-    <property name="text">
-     <string>Robot Ros
-Reset</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="BTN_SPEED_CHANGE">
-    <property name="geometry">
-     <rect>
-      <x>650</x>
-      <y>110</y>
-      <width>171</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>나눔스퀘어 네오 Heavy</family>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(254, 201, 40);
-border-radius: 10px;</string>
-    </property>
-    <property name="text">
-     <string>Speed Change</string>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
@@ -603,6 +451,13 @@ border-radius: 10px;</string>
       <family>나눔스퀘어 네오 Regular</family>
       <pointsize>10</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
     </property>
     <property name="title">
      <string>Set Joint Position</string>
@@ -886,7 +741,9 @@ background-color: rgb(244, 248, 247);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
-background-color: rgb(244, 248, 247);</string>
+background-color: rgb(244, 248, 247);
+border: 1px solid #c6c6c6;
+</string>
     </property>
     <property name="text">
      <string>Real</string>
@@ -911,7 +768,9 @@ background-color: rgb(244, 248, 247);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
-background-color: rgb(244, 248, 247);</string>
+background-color: rgb(244, 248, 247);
+border: 1px solid #c6c6c6;
+</string>
     </property>
     <property name="text">
      <string>Simulation</string>
@@ -936,7 +795,9 @@ background-color: rgb(244, 248, 247);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
-background-color: rgb(244, 248, 247);</string>
+background-color: rgb(244, 248, 247);
+border: 1px solid #c6c6c6;
+</string>
     </property>
     <property name="text">
      <string>Idle</string>
@@ -961,7 +822,9 @@ background-color: rgb(244, 248, 247);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
-background-color: rgb(244, 248, 247);</string>
+background-color: rgb(244, 248, 247);
+border: 1px solid #c6c6c6;
+</string>
     </property>
     <property name="text">
      <string>Moving</string>
@@ -984,6 +847,13 @@ background-color: rgb(244, 248, 247);</string>
       <family>나눔스퀘어 네오 Heavy</family>
       <pointsize>10</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
     </property>
     <property name="title">
      <string>Joint Reference</string>
@@ -1262,6 +1132,13 @@ background-color: rgb(244, 248, 247);</string>
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
+    </property>
     <property name="title">
      <string>Joint Encoder</string>
     </property>
@@ -1538,6 +1415,13 @@ background-color: rgb(244, 248, 247);</string>
       <family>나눔스퀘어 네오 Heavy</family>
       <pointsize>10</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
     </property>
     <property name="title">
      <string>TCP Reference</string>
@@ -1816,6 +1700,13 @@ background-color: rgb(244, 248, 247);</string>
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
+    </property>
     <property name="title">
      <string>Tool Out</string>
     </property>
@@ -1915,6 +1806,13 @@ background-color: rgb(244, 248, 247);</string>
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
+    </property>
     <property name="title">
      <string>Set TCP Position</string>
     </property>
@@ -1951,111 +1849,6 @@ border-radius: 10px;</string>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_34">
-        <property name="minimumSize">
-         <size>
-          <width>40</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>나눔스퀘어 네오 Regular</family>
-         </font>
-        </property>
-        <property name="text">
-         <string>RY</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="label_35">
-        <property name="minimumSize">
-         <size>
-          <width>40</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>나눔스퀘어 네오 Regular</family>
-         </font>
-        </property>
-        <property name="text">
-         <string>RZ</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_36">
-        <property name="minimumSize">
-         <size>
-          <width>40</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>나눔스퀘어 네오 Regular</family>
-         </font>
-        </property>
-        <property name="text">
-         <string>X</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_37">
-        <property name="minimumSize">
-         <size>
-          <width>40</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>나눔스퀘어 네오 Regular</family>
-         </font>
-        </property>
-        <property name="text">
-         <string>Y</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_38">
-        <property name="minimumSize">
-         <size>
-          <width>40</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>나눔스퀘어 네오 Regular</family>
-         </font>
-        </property>
-        <property name="text">
-         <string>RX</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_39">
         <property name="minimumSize">
@@ -2093,8 +1886,50 @@ background-color: rgb(244, 248, 247);</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="SET_TCP_POS_Y">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_36">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
+        <property name="text">
+         <string>X</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_38">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
+        <property name="text">
+         <string>RX</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="SET_TCP_POS_RZ">
         <property name="font">
          <font>
           <family>나눔스퀘어 네오 Regular</family>
@@ -2125,8 +1960,29 @@ background-color: rgb(244, 248, 247);</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
-       <widget class="QLineEdit" name="SET_TCP_POS_RX">
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_35">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
+        <property name="text">
+         <string>RZ</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="SET_TCP_POS_Y">
         <property name="font">
          <font>
           <family>나눔스퀘어 네오 Regular</family>
@@ -2138,6 +1994,48 @@ background-color: rgb(244, 248, 247);</string>
         </property>
         <property name="text">
          <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_34">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
+        <property name="text">
+         <string>RY</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_37">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>나눔스퀘어 네오 Regular</family>
+         </font>
+        </property>
+        <property name="text">
+         <string>Y</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -2157,8 +2055,8 @@ background-color: rgb(244, 248, 247);</string>
         </property>
        </widget>
       </item>
-      <item row="5" column="1">
-       <widget class="QLineEdit" name="SET_TCP_POS_RZ">
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="SET_TCP_POS_RX">
         <property name="font">
          <font>
           <family>나눔스퀘어 네오 Regular</family>
@@ -2189,6 +2087,13 @@ background-color: rgb(244, 248, 247);</string>
      <font>
       <family>나눔스퀘어 네오 Regular</family>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
     </property>
     <property name="title">
      <string>Robot Data Viewer</string>
@@ -2332,6 +2237,13 @@ background-color:rgb(244, 248, 247);</string>
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
+    </property>
     <property name="title">
      <string>Tool</string>
     </property>
@@ -2387,7 +2299,7 @@ background-color: rgb(187, 189, 195);</string>
      <rect>
       <x>640</x>
       <y>530</y>
-      <width>331</width>
+      <width>431</width>
       <height>91</height>
      </rect>
     </property>
@@ -2396,6 +2308,13 @@ background-color: rgb(187, 189, 195);</string>
       <family>나눔스퀘어 네오 Regular</family>
       <pointsize>10</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
     </property>
     <property name="title">
      <string>SAVE_MOTION</string>
@@ -2469,10 +2388,342 @@ border-radius: 10px;</string>
       <string>CLEAR</string>
      </property>
     </widget>
+    <widget class="QLineEdit" name="LE_DELAY">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>50</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 5px;
+background-color:rgb(244, 248, 247);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="BTN_MOTION_DELAY">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>30</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 5px;
+color: rgb(255, 255, 255);
+background-color: rgb(254, 201, 40);
+</string>
+     </property>
+     <property name="text">
+      <string>ADD DELAY</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_11">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>10</y>
+      <width>191</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QPushButton" name="BTN_SPEED_CHANGE">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(254, 201, 40);
+border-radius: 10px;</string>
+     </property>
+     <property name="text">
+      <string>Speed Change</string>
+     </property>
+    </widget>
+    <widget class="QSlider" name="HS_BASE_SPEED">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QSlider::groove:horizontal {
+        border: 1px solid #999999;
+        height: 8px; /* thickness of the groove */
+        background: #FFFFFF;
+        border-radius: 4px; /* radius of the groove */
+    }
+
+QSlider::handle:horizontal {
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #dadbde, stop:1 #f6f7fa);
+        border: 1px solid #999999;
+        width: 20px; /* width of the handle */
+        margin: -6px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
+        border-radius: 8px; /* radius of the handle (circle shape) */
+    }</string>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Regular</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>Base Speed</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_12">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>10</y>
+      <width>241</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QPushButton" name="BTN_MOTION_HALT">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>90</y>
+       <width>101</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(254, 201, 40);
+border-radius: 10px;</string>
+     </property>
+     <property name="text">
+      <string>Motion
+Halt</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="BTN_ROBOT_POS_RES">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>101</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 184, 144);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+     </property>
+     <property name="text">
+      <string>Robot Ros
+Reset</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="BTN_MOTION_PAUSE">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>101</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(254, 201, 40);
+border-radius: 10px;</string>
+     </property>
+     <property name="text">
+      <string>Motion
+Pause</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="BTN_MOTION_RESUME">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>10</y>
+       <width>101</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>나눔스퀘어 네오 Heavy</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 184, 144);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+     </property>
+     <property name="text">
+      <string>Motion
+Resume</string>
+     </property>
+    </widget>
    </widget>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1091</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>나눔스퀘어 네오 Bold</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenu::item {
+        color: black;
+    }
+    QMenu::item:selected {
+        color: black;
+        background-color: rgb(232, 238, 247);
+    }
+    QMenu::item:disabled {
+        color: gray;
+    }
+    QMenu::item:checked {
+        color: blue;
+    }</string>
+   </property>
+   <widget class="QMenu" name="SAVEFILE">
+    <property name="font">
+     <font>
+      <family>나눔스퀘어 네오 Regular</family>
+     </font>
+    </property>
+    <property name="title">
+     <string>저장</string>
+    </property>
+    <addaction name="actionSAVE"/>
+   </widget>
+   <addaction name="SAVEFILE"/>
+  </widget>
+  <action name="SAVE_FILE">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icon/transparent_image.png</normaloff>
+     <normalon>:/icon/transparent_image.png</normalon>
+     <disabledoff>:/icon/transparent_image.png</disabledoff>
+     <disabledon>:/icon/transparent_image.png</disabledon>
+     <activeoff>:/icon/transparent_image.png</activeoff>
+     <activeon>:/icon/transparent_image.png</activeon>
+     <selectedoff>:/icon/transparent_image.png</selectedoff>
+     <selectedon>:/icon/transparent_image.png</selectedon>:/icon/transparent_image.png</iconset>
+   </property>
+   <property name="text">
+    <string>저장</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
+   </property>
+   <property name="autoRepeat">
+    <bool>true</bool>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionasfsds">
+   <property name="text">
+    <string>asfsds</string>
+   </property>
+  </action>
+  <action name="actionSAVE">
+   <property name="text">
+    <string>SAVE</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

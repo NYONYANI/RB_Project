@@ -1,11 +1,15 @@
 from PyQt5.QtNetwork import QTcpSocket
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton, QLineEdit,QTextEdit, QSlider,QLabel
+from PyQt5.QtWidgets import QGraphicsDropShadowEffect
+from PyQt5.QtGui import QColor
 from PyQt5.uic import loadUi
 from PyQt5.QtCore import QTimer
 import sys
 import robot_c
 from os import environ
 import time
+
+import realsense
 
 font_path = "fonts/YourFont.ttf"
 class MyWindow(QMainWindow):
@@ -41,9 +45,11 @@ class MyWindow(QMainWindow):
         self.btn_motion_save = self.findChild(QPushButton, 'BTN_MOTION_SAVE')
         self.btn_motion_play = self.findChild(QPushButton, 'BTN_MOTION_PLAY')
         self.btn_motion_clear = self.findChild(QPushButton, 'BTN_MOTION_CLEAR')
-
+        self.btn_motion_delay = self.findChild(QPushButton, 'BTN_MOTION_DELAY')
+    
 
         self.ip_address = self.findChild(QLineEdit, 'IP_ADDRESS')
+        self.delay_time = self.findChild(QLineEdit, 'LE_DELAY')
         self.debug_msg = self.findChild(QTextEdit, 'DEBUG_MSG')
 
         self.hs_base_speed = self.findChild(QSlider, 'HS_BASE_SPEED')
@@ -68,9 +74,12 @@ class MyWindow(QMainWindow):
         self.btn_motion_save.clicked.connect(self.motion_save)
         self.btn_motion_play.clicked.connect(self.motion_play)
         self.btn_motion_clear.clicked.connect(self.motion.clear)
+        self.btn_motion_delay.clicked.connect(self.motion_delay)
+      
+    def print_hello_world(self):
+        print('Hello World')
 
-        
-    
+
     def connect_to_ros(self):
         # Get the IP address from the text field
         ip = self.ip_address.text()
@@ -126,7 +135,7 @@ class MyWindow(QMainWindow):
         self.robot.MoveTCP(x, y, z, rx, ry, rz)
         self.debug_msg.append("Moving TCP to: "+x+", "+y+", "+z+", "+rx+", "+ry+", "+rz)
     def motion_save(self):
-        self.motion.append([self.robot.robot_state.jnt_ang,self.robot.robot_state.tfb_digital_out])
+        self.motion.append(['M',self.robot.robot_state.jnt_ang,self.robot.robot_state.tfb_digital_out])
         self.debug_msg.append("Motion saved")
     def motion_play(self):
         self.debug_msg.append("Playing motion")
@@ -139,7 +148,12 @@ class MyWindow(QMainWindow):
     def motion_clear(self):
         self.motion.clear()
         self.debug_msg.append("Motion cleared")
-            
+    
+    def motion_delay(self):
+        delay = self.delay_time.text()
+        self.debug_msg.append("Delay: "+delay)
+        #time.sleep(int(delay))
+        self.motion.append(['D',int(delay)])
     def receive_data(self):
         self.robot.receive_data()
         self.JNT_REF_1.setText(str(self.robot.robot_state.jnt_ref[0]))
@@ -167,17 +181,36 @@ class MyWindow(QMainWindow):
         if self.robot.robot_state.robot_state == 1:
             self.robot_state_Idle.setStyleSheet("border-radius: 10px;background-color: green;")
         else:self.robot_state_Idle.setStyleSheet("border-radius: 10px;background-color: rgb(244, 248, 247);")
-
+#####################모션 실행할 코드 부분#############################
         if ((self.robot.robot_state.robot_state == 1) and (self.robot.robot_state.robot_state != self.old_state)) or self.motion_count == 0:
-            self.debug_msg.append("Robot is idle")
             if self.Motion_play:
-                MJ = self.motion[self.motion_count]
-                self.robot.MoveJoint(MJ[0][0],MJ[0][1],MJ[0][2],MJ[0][3],MJ[0][4],MJ[0][5])
-                self.robot.Tool(24,MJ[1][0],MJ[1][1])
-                self.motion_count += 1
-                if len(self.motion) == self.motion_count:
-                    self.Motion_play = False
+                if self.motion[self.motion_count][0] == 'M':
+                    MJ = self.motion[self.motion_count]
+                    self.robot.MoveJoint(MJ[1][0],MJ[1][1],MJ[1][2],MJ[1][3],MJ[1][4],MJ[1][5])
+                    self.robot.Tool(24,MJ[2][0],MJ[2][1])
+                    self.motion_count += 1
                     
+
+                if self.motion[self.motion_count][0] == 'D':
+                    #현재 시간을 저장하는 함수
+                    if self.Start_time == 0:
+                        self.start_time = time.time()
+                    if time.time() - self.start_time > self.motion[self.motion_count][1]:
+                        self.start_time = 0
+                        self.motion_count += 1
+                        
+                if len(self.motion) == self.motion_count:
+                        self.Motion_play = False
+
+
+                
+                # MJ = self.motion[self.motion_count]
+                # self.robot.MoveJoint(MJ[0][0],MJ[0][1],MJ[0][2],MJ[0][3],MJ[0][4],MJ[0][5])
+                # self.robot.Tool(24,MJ[1][0],MJ[1][1])
+                # self.motion_count += 1
+                # if len(self.motion) == self.motion_count:
+                #     self.Motion_play = False
+#####################실행할 코드 부분 끝#############################           
         self.old_state = self.robot.robot_state.robot_state
         if self.robot.robot_state.real_vs_simulation_mode == 0: 
             self.mode_real.setStyleSheet("border-radius: 10px;\nbackground-color: green;")
