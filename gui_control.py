@@ -9,7 +9,7 @@ import robot_c
 from os import environ
 import time
 
-import realsense
+#import realsense
 
 font_path = "fonts/YourFont.ttf"
 class MyWindow(QMainWindow):
@@ -18,6 +18,7 @@ class MyWindow(QMainWindow):
         self.setWindowTitle("My Window")
         self.resize(400, 300)
         
+
         ui_file = "mainwindow.ui"
         loadUi(ui_file, self)
         self.motion = []
@@ -27,6 +28,9 @@ class MyWindow(QMainWindow):
         self.motion_count = -1
         self.timer = QTimer()
         self.timer.timeout.connect(self.receive_data)
+        self.start_flag = 1
+        self.Start_time=0
+        self.Next_Motion = False
         self.robot =  robot_c.Robot(ROBOT_IP, COMMAND_PORT, DATA_PORT)
         self.robot_state = robot_c.reqdata.RobotData()
 
@@ -46,7 +50,9 @@ class MyWindow(QMainWindow):
         self.btn_motion_play = self.findChild(QPushButton, 'BTN_MOTION_PLAY')
         self.btn_motion_clear = self.findChild(QPushButton, 'BTN_MOTION_CLEAR')
         self.btn_motion_delay = self.findChild(QPushButton, 'BTN_MOTION_DELAY')
-    
+        #QAction으로 만들어진 save_Action 버튼 기능 추가
+        self.actionSAVE.triggered.connect(self.save_action)
+        self.actionLOAD.triggered.connect(self.load_action)
 
         self.ip_address = self.findChild(QLineEdit, 'IP_ADDRESS')
         self.delay_time = self.findChild(QLineEdit, 'LE_DELAY')
@@ -94,6 +100,34 @@ class MyWindow(QMainWindow):
     def change_speed(self):
         speed = self.hs_base_speed.value() / 100.0
         self.robot.sdw(speed)
+    def save_action(self):
+        file = open("action.txt", 'w')
+        for i in range(len(self.motion)):
+            if self.motion[i][0] == 'M':
+                file.write("M")
+                for j in range(6):
+                    file.write(" "+str(self.motion[i][1][j]))
+                for j in range(2):
+                    file.write(" "+str(self.motion[i][2][j]))
+                file.write("\n")
+            elif self.motion[i][0] == 'D':
+                file.write("D "+str(self.motion[i][1])+"\n")
+        file.close()
+        self.debug_msg.append("Action saved")
+
+    def load_action(self):
+        file = open("action.txt", 'r')
+        self.motion.clear()
+        while True:
+            line = file.readline()
+            if not line: break
+            line = line.split()
+            if line[0] == 'M':
+                self.motion.append(['M',[float(line[1]),float(line[2]),float(line[3]),float(line[4]),float(line[5]),float(line[6])],[float(line[7]),float(line[8])]])
+            elif line[0] == 'D':
+                self.motion.append(['D',int(line[1])])
+        file.close()
+        self.debug_msg.append("Action loaded")
     def update_label(self, value):
         self.lb_base_speed.setText(str(value)+"%")
 
@@ -142,6 +176,9 @@ class MyWindow(QMainWindow):
         self.debug_msg.append(str(len(self.motion)))
         self.Motion_play = True
         self.motion_count = 0
+        self.Start_time = 0
+        self.start_flag = False
+        self.Next_Motion = False
         
         
             
@@ -182,34 +219,42 @@ class MyWindow(QMainWindow):
             self.robot_state_Idle.setStyleSheet("border-radius: 10px;background-color: green;")
         else:self.robot_state_Idle.setStyleSheet("border-radius: 10px;background-color: rgb(244, 248, 247);")
 #####################모션 실행할 코드 부분#############################
-        if ((self.robot.robot_state.robot_state == 1) and (self.robot.robot_state.robot_state != self.old_state)) or self.motion_count == 0:
-            if self.Motion_play:
-                if self.motion[self.motion_count][0] == 'M':
+        
+            #위에 if문을 효율적으로 바꿔줘
+        
+        if self.robot.robot_state.robot_state == 1 and self.robot.robot_state.robot_state != self.old_state:
+            #self.debug_msg.append("로봇이 대기중입니다.")
+            self.Can_Motion_play = True
+        elif self.robot.robot_state.robot_state == 3:
+            #self.debug_msg.append("로봇이 움직이고 있습니다.")
+            self.Can_Motion_play = False
+        
+
+        if self.Motion_play and(self.Can_Motion_play or self.Start_time != 0 or self.Next_Motion):
+            #self.debug_msg.append("Motion_play:%d,C_M_P:%d S_t:%d N_M:%d"%(self.Motion_play,self.Can_Motion_play,self.Start_time,self.Next_Motion))
+            if self.motion[self.motion_count][0] == 'M':
+                    self.Next_Motion = False
+                    self.debug_msg.append("모션을 실행합니다.Motion play:%d"%self.motion_count)
                     MJ = self.motion[self.motion_count]
                     self.robot.MoveJoint(MJ[1][0],MJ[1][1],MJ[1][2],MJ[1][3],MJ[1][4],MJ[1][5])
                     self.robot.Tool(24,MJ[2][0],MJ[2][1])
                     self.motion_count += 1
-                    
+                    time.sleep(0.1)
 
-                if self.motion[self.motion_count][0] == 'D':
-                    #현재 시간을 저장하는 함수
-                    if self.Start_time == 0:
-                        self.start_time = time.time()
-                    if time.time() - self.start_time > self.motion[self.motion_count][1]:
-                        self.start_time = 0
-                        self.motion_count += 1
-                        
-                if len(self.motion) == self.motion_count:
-                        self.Motion_play = False
+            elif self.motion[self.motion_count][0] == 'D':
+                if self.Start_time == 0:
+                    self.debug_msg.append("딜레이를 시작합니다. %d: %d 초"%(self.motion_count,int(self.motion[self.motion_count][1])))
+                    self.Start_time = time.time()
+                if (time.time() - self.Start_time) > self.motion[self.motion_count][1]:
+                    self.debug_msg.append("딜레이가 끝났습니다.")
+                    self.motion_count += 1
+                    self.Start_time = 0
+                    self.Next_Motion = True
 
+            if len(self.motion) == self.motion_count:
+                self.Motion_play = False
+                self.debug_msg.append("모션 재생이 끝났습니다.")
 
-                
-                # MJ = self.motion[self.motion_count]
-                # self.robot.MoveJoint(MJ[0][0],MJ[0][1],MJ[0][2],MJ[0][3],MJ[0][4],MJ[0][5])
-                # self.robot.Tool(24,MJ[1][0],MJ[1][1])
-                # self.motion_count += 1
-                # if len(self.motion) == self.motion_count:
-                #     self.Motion_play = False
 #####################실행할 코드 부분 끝#############################           
         self.old_state = self.robot.robot_state.robot_state
         if self.robot.robot_state.real_vs_simulation_mode == 0: 

@@ -2646,7 +2646,7 @@ Resume</string>
      <x>0</x>
      <y>0</y>
      <width>1091</width>
-     <height>19</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -2676,9 +2676,10 @@ Resume</string>
      </font>
     </property>
     <property name="title">
-     <string>저장</string>
+     <string>FILE</string>
     </property>
     <addaction name="actionSAVE"/>
+    <addaction name="actionLOAD"/>
    </widget>
    <addaction name="SAVEFILE"/>
   </widget>
@@ -2718,6 +2719,11 @@ Resume</string>
   <action name="actionSAVE">
    <property name="text">
     <string>SAVE</string>
+   </property>
+  </action>
+  <action name="actionLOAD">
+   <property name="text">
+    <string>LOAD</string>
    </property>
   </action>
  </widget>
